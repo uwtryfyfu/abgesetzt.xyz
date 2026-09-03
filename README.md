@@ -6,7 +6,7 @@ Welcome to the official repository for **abgesetzt.xyz**, the personal portfolio
 
 ---
 
-## Included Files
+## Included Files <img src="https://abgesetzt.xyz/cats/bob.png" width="48" alt="Cat Bob" />
 
 This project isn't rocket science, but it is full of curated HTML, CSS, and easter eggs. Here's what's inside:
 
@@ -16,7 +16,7 @@ This project isn't rocket science, but it is full of curated HTML, CSS, and east
 
 ---
 
-## Assets & Required Files
+## Assets & Required Files <img src="https://abgesetzt.xyz/cats/lost.png" width="48" alt="Cat Lost" />
 
 To get this site running smoothly (and without broken image icons judgmentally staring at you), make sure you have the following assets placed in your project directory:
 
@@ -39,14 +39,14 @@ To get this site running smoothly (and without broken image icons judgmentally s
 
 ---
 
-## Interactive Easter Eggs
+## Interactive Easter Eggs <img src="https://abgesetzt.xyz/cats/blushy.png" width="48" alt="Cat Blushy" />
 
 * **Cat Mascot (Bottom Right):** Click the cat to cycle through expressions and audio meows.
 * **The 10-Click Challenge:** Click the mascot 10 times in a row. Go on, we double-dog dare you (or double-cat dare you).
 
 ---
 
-## Usage & Attribution
+## Usage & Attribution <img src="https://abgesetzt.xyz/cats/money.png" width="48" alt="Cat Money" />
 
 Feel free to inspect the code or use the layout as inspiration! If you plan on using or modifying this design for your own site, please give credit by linking back to this repository.
 
@@ -56,4 +56,4 @@ Feel free to inspect the code or use the layout as inspiration! If you plan on u
 
 © 2026 **abgesetzt.xyz**. All rights reserved.
 
-*Made with care by abgesetzt.*
+*Made with care by abgesetzt. <img src="https://abgesetzt.xyz/cats/angry.png" width="48" alt="Cat Cookie" />*
