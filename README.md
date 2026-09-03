@@ -41,7 +41,7 @@ To get this site running smoothly (and without broken image icons judgmentally s
 
 ---
 
-## Interactive Easter Eggs <img src="https://abgesetzt.xyz/cats/chill.png" width="48" alt="Cat Chill" />
+## Interactive Easter Eggs <img src="https://abgesetzt.xyz/cats/hsppx.png" width="48" alt="Cat Happy" />
 
 * **Cat Mascot (Bottom Right):** Click the cat to cycle through expressions and audio meows.
 * **The 10-Click Challenge:** Click the mascot 10 times in a row. Go on, we double-dog dare you (or double-cat dare you).
@@ -56,8 +56,10 @@ You can also support me here: [![ko-fi](https://ko-fi.com/img/githubbutton_sm.sv
 
 ---
 
+---
+
 ## Copyright & License
 
-© 2026 **abgesetzt.xyz**. All rights reserved.
+© 2026 **abgesetzt.xyz**. All rights reserved for website code and design. More information about the copyright can be found in [LICENSE](LICENSE).
 
-*Made with care by abgesetzt. <img src="https://abgesetzt.xyz/cats/angry.png" width="48" alt="Cat Cookie" />*
+*Made with care by MEEEEE (abgesetzt). <img src="https://abgesetzt.xyz/cats/angry.png" width="48" alt="Cat Cookie" />*
