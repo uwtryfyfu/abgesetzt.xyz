@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>404 — abgesetzt.xyz</title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+    <meta
+      name="description"
+      content="This page could not be found on abgesetzt.xyz."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&family=Fredoka:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        color-scheme: dark;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #160e22;
+        background-image:
+          repeating-linear-gradient(
+            0deg,
+            rgba(255, 255, 255, 0.025) 0px,
+            rgba(255, 255, 255, 0.025) 1px,
+            transparent 1px,
+            transparent 32px
+          );
+        color: #e4e4e7;
+        font-family: Inter, sans-serif;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        width: 500px;
+        height: 500px;
+        border-radius: 50%;
+        background: rgba(168, 127, 251, 0.08);
+        filter: blur(100px);
+        top: -220px;
+        left: -180px;
+        pointer-events: none;
+      }
+
+      body::after {
+        content: "";
+        position: fixed;
+        width: 450px;
+        height: 450px;
+        border-radius: 50%;
+        background: rgba(244, 178, 216, 0.07);
+        filter: blur(100px);
+        bottom: -220px;
+        right: -180px;
+        pointer-events: none;
+      }
+
+      .wrapper {
+        width: 100%;
+        max-width: 650px;
+        padding: 24px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .wreckage {
+        position: relative;
+        padding: 52px 38px 42px;
+        text-align: center;
+        background: #241935;
+        border: 1.5px solid rgba(244, 178, 216, 0.3);
+        clip-path: polygon(
+          1% 4%,
+          9% 1%,
+          18% 3%,
+          28% 0%,
+          39% 2%,
+          51% 0%,
+          62% 3%,
+          74% 1%,
+          85% 4%,
+          98% 2%,
+          97% 15%,
+          100% 27%,
+          97% 39%,
+          99% 51%,
+          96% 63%,
+          99% 76%,
+          96% 88%,
+          99% 97%,
+          87% 95%,
+          76% 98%,
+          64% 96%,
+          53% 100%,
+          42% 97%,
+          31% 99%,
+          20% 96%,
+          9% 98%,
+          2% 94%,
+          4% 83%,
+          1% 71%,
+          3% 59%,
+          0% 47%,
+          3% 35%,
+          1% 23%,
+          4% 13%
+        );
+        box-shadow:
+          0 30px 80px rgba(0, 0, 0, 0.5),
+          0 0 45px rgba(244, 178, 216, 0.04);
+        transform: rotate(-0.4deg);
+      }
+
+      .wreckage::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        opacity: 0.8;
+        background:
+          repeating-linear-gradient(
+            43deg,
+            transparent 0,
+            transparent 40px,
+            rgba(244, 178, 216, 0.045) 40px,
+            rgba(244, 178, 216, 0.045) 41px
+          ),
+          repeating-linear-gradient(
+            -48deg,
+            transparent 0,
+            transparent 55px,
+            rgba(168, 127, 251, 0.035) 55px,
+            rgba(168, 127, 251, 0.035) 56px
+          );
+        clip-path: inherit;
+      }
+
+      .crack {
+        position: absolute;
+        z-index: 4;
+        width: 90px;
+        height: 90px;
+        pointer-events: none;
+      }
+
+      .crack::before,
+      .crack::after {
+        content: "";
+        position: absolute;
+        background: rgba(244, 178, 216, 0.35);
+        height: 1px;
+        transform-origin: left center;
+      }
+
+      .crack::before {
+        width: 65px;
+        transform: rotate(35deg);
+        top: 20px;
+        left: 5px;
+      }
+
+      .crack::after {
+        width: 48px;
+        transform: rotate(-42deg);
+        top: 58px;
+        left: 30px;
+      }
+
+      .crack-one {
+        top: 8%;
+        left: 8%;
+        transform: rotate(-12deg);
+      }
+
+      .crack-two {
+        right: 7%;
+        bottom: 10%;
+        transform: rotate(165deg);
+      }
+
+      .crack-three {
+        right: 15%;
+        top: 12%;
+        transform: scale(0.55) rotate(30deg);
+      }
+
+      .broken-piece {
+        position: absolute;
+        background: #2e2043;
+        border: 1px solid rgba(244, 178, 216, 0.25);
+        pointer-events: none;
+      }
+
+      .piece-one {
+        width: 28px;
+        height: 17px;
+        top: -9px;
+        right: 22%;
+        transform: rotate(24deg);
+      }
+
+      .piece-two {
+        width: 17px;
+        height: 28px;
+        bottom: -13px;
+        left: 18%;
+        transform: rotate(-35deg);
+      }
+
+      .piece-three {
+        width: 12px;
+        height: 21px;
+        top: 31%;
+        left: -8px;
+        transform: rotate(21deg);
+      }
+
+      .brand {
+        position: relative;
+        z-index: 5;
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        margin-bottom: 28px;
+        color: white;
+        font-family: Sora, sans-serif;
+        font-size: 14px;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .brand-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #f4b2d8;
+        box-shadow: 0 0 15px rgba(244, 178, 216, 0.35);
+      }
+
+      .error-number {
+        position: relative;
+        z-index: 5;
+        margin: 0;
+        font-family: Sora, sans-serif;
+        font-size: clamp(90px, 20vw, 150px);
+        line-height: 0.9;
+        font-weight: 800;
+        letter-spacing: -0.08em;
+        color: #f4b2d8;
+        text-shadow:
+          5px 5px 0 rgba(168, 127, 251, 0.2),
+          0 0 45px rgba(244, 178, 216, 0.08);
+        transform: rotate(-2deg);
+      }
+
+      .title {
+        position: relative;
+        z-index: 5;
+        margin: 28px 0 10px;
+        color: white;
+        font-family: Sora, sans-serif;
+        font-size: clamp(21px, 5vw, 28px);
+        font-weight: 700;
+      }
+
+      .description {
+        position: relative;
+        z-index: 5;
+        max-width: 430px;
+        margin: 0 auto;
+        color: #a1a1aa;
+        font-size: 13px;
+        line-height: 1.7;
+      }
+
+      .description em {
+        color: #f4b2d8;
+        font-family: Fredoka, sans-serif;
+        font-style: normal;
+      }
+
+      .cat {
+        position: relative;
+        z-index: 5;
+        width: 92px;
+        height: 92px;
+        margin: 30px auto 0;
+        object-fit: contain;
+        animation: bob 2.5s ease-in-out infinite;
+        filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.5));
+      }
+
+      @keyframes bob {
+        0%,
+        100% {
+          transform: translateY(0) rotate(0deg);
+        }
+
+        50% {
+          transform: translateY(-7px) rotate(-2deg);
+        }
+      }
+
+      .buttons {
+        position: relative;
+        z-index: 5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+        margin-top: 30px;
+        flex-wrap: wrap;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 135px;
+        padding: 11px 18px;
+        border-radius: 11px 8px 12px 9px;
+        border: 1px solid rgba(244, 178, 216, 0.25);
+        background: #1b1227;
+        color: #d4d4d8;
+        text-decoration: none;
+        font-family: Inter, sans-serif;
+        font-size: 13px;
+        font-weight: 600;
+        transition:
+          transform 0.2s ease,
+          background 0.2s ease,
+          border-color 0.2s ease,
+          color 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+
+      .button:hover {
+        transform: translateY(-3px) rotate(-1deg);
+        background: #2e2043;
+        border-color: rgba(244, 178, 216, 0.65);
+        color: #f4b2d8;
+        box-shadow: 0 8px 25px rgba(244, 178, 216, 0.1);
+      }
+
+      .button.primary {
+        background: #f4b2d8;
+        color: #160e22;
+        border-color: #f4b2d8;
+        box-shadow: 0 6px 20px rgba(244, 178, 216, 0.12);
+      }
+
+      .button.primary:hover {
+        background: #ffc7e5;
+        border-color: #ffc7e5;
+        color: #160e22;
+        box-shadow: 0 10px 30px rgba(244, 178, 216, 0.22);
+      }
+
+      .footer {
+        position: relative;
+        z-index: 5;
+        margin-top: 28px;
+        color: #52525b;
+        font-family: Fredoka, sans-serif;
+        font-size: 11px;
+      }
+
+      .footer span {
+        color: #f4b2d8;
+      }
+
+      @media (max-width: 500px) {
+        body {
+          overflow-y: auto;
+        }
+
+        .wrapper {
+          padding: 16px;
+        }
+
+        .wreckage {
+          padding: 40px 22px 32px;
+        }
+
+        .cat {
+          width: 78px;
+          height: 78px;
+        }
+
+        .button {
+          width: 100%;
+        }
+
+        .buttons {
+          flex-direction: column;
+        }
+
+        .crack-three,
+        .piece-three {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <main class="wrapper">
+      <div class="wreckage">
+        <div class="crack crack-one"></div>
+        <div class="crack crack-two"></div>
+        <div class="crack crack-three"></div>
+
+        <div class="broken-piece piece-one"></div>
+        <div class="broken-piece piece-two"></div>
+        <div class="broken-piece piece-three"></div>
+
+        <div class="brand">
+          <span class="brand-dot"></span>
+          abgesetzt<span style="color: #f4b2d8">.xyz</span>
+        </div>
+
+        <h1 class="error-number">404</h1>
+
+        <h2 class="title">Looks like you're lost.</h2>
+
+        <p class="description">
+          The cat searched everywhere for this page.<br />
+          Turns out, it was <em>purr</em>-manently missing. 🐾
+        </p>
+
+        <img
+          class="cat"
+          src="/cats/lost.png"
+          alt="Cat mascot"
+        />
+
+        <div class="buttons">
+          <a href="/" class="button primary">
+            Go Home
+          </a>
+
+          <a href="javascript:history.back()" class="button">
+            Go Back
+          </a>
+        </div>
+
+        <div class="footer">
+          made with <span>♡</span> by abgesetzt
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

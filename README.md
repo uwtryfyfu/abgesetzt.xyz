@@ -1,0 +1,59 @@
+# <img src="https://abgesetzt.xyz/cats/blush.png" width="48" alt="Cat Blush" /> abgesetzt.xyz - Loading Workspace & Discord Profile... <img src="https://abgesetzt.xyz/cats/blush.png" width="48" alt="Cat Blush" />
+
+> "Built with code, questionable decisions & way too much caffeine."
+
+Welcome to the official repository for **abgesetzt.xyz**, the personal portfolio and digital playground of **abgesetzt** (Steven) - self-taught developer, bot reviewer, Discord moderator, and full-time feline enthusiast.
+
+---
+
+## Included Files
+
+This project isn't rocket science, but it is full of curated HTML, CSS, and easter eggs. Here's what's inside:
+
+* **`index.html`** - The main event! Features an interactive desk, live Discord status integration (via Lanyard API), smooth scroll navigation, multi-language support (EN/DE), custom glassmorphism styling, and a cat mascot that may or may not rickroll you if you click it too many times.
+* **`404.html`** - The page you hope users never see, but when they do, at least they get a broken wreckage card, a floating cat, and a bad pun about being permanently missing.
+* **`sponsor.html`** - The sponsor page! Displays options to support the project, custom tiers, and sponsor recognition.
+
+---
+
+## Assets & Required Files
+
+To get this site running smoothly (and without broken image icons judgmentally staring at you), make sure you have the following assets placed in your project directory:
+
+### Cat Mascots (`/cats/`)
+* `/cats/angry.png` - For when the code refuses to compile.
+* `/cats/blush.png` - Used in the favicon / OpenGraph header cards.
+* `/cats/bob.png` - Floating casually in space.
+* `/cats/hsppx.png` - Mystery cat expression.
+* `/cats/lost.png` - Featured exclusively on the 404 page.
+
+### Audio & Easter Eggs (`/audio/` & `/assets/`)
+* `/audio/meow.mp3` - Essential sound effect when poking the mascot.
+* `/audio/rickroll.mp3` - Plays when someone clicks the cat 10 times. You've been warned.
+* `/assets/rr.gif` - Visual component of the 10-click cat secret.
+* `/assets/nitro.png` - Discord Nitro badge icon.
+* `/favicon.ico` - Site icon.
+
+### Stylesheets
+* `/dist/tailwind.css` - Compiled Tailwind CSS file for styling.
+
+---
+
+## Interactive Easter Eggs
+
+* **Cat Mascot (Bottom Right):** Click the cat to cycle through expressions and audio meows.
+* **The 10-Click Challenge:** Click the mascot 10 times in a row. Go on, we double-dog dare you (or double-cat dare you).
+
+---
+
+## Usage & Attribution
+
+Feel free to inspect the code or use the layout as inspiration! If you plan on using or modifying this design for your own site, please give credit by linking back to this repository.
+
+---
+
+## Copyright & License
+
+© 2026 **abgesetzt.xyz**. All rights reserved.
+
+*Made with care by abgesetzt.*

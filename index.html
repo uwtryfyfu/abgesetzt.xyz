@@ -1,0 +1,2702 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>abgesetzt.xyz</title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+    <meta name="title" content="abgesetzt.xyz" />
+    <meta
+      name="description"
+      content="The personal portfolio of abgesetzt, a self-taught developer building modern web applications, Discord bots, gaming tools, and custom digital projects since 2022."
+    />
+    <meta name="theme-color" content="#422769" />
+    <meta name="color-scheme" content="dark" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://abgesetzt.xyz/" />
+    <meta property="og:site_name" content="abgesetzt.xyz" />
+    <meta property="og:title" content="abgesetzt.xyz" />
+    <meta
+      property="og:description"
+      content="abgesetzt's personal portfolio - self-taught developer building web applications, Discord bots, gaming tools, and custom digital projects since 2022."
+    />
+    <meta property="og:image" content="/cats/blush.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:alt" content="abgesetzt.xyz icon" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="abgesetzt.xyz" />
+    <meta
+      name="twitter:description"
+      content="abgesetzt's personal portfolio - self-taught developer building web applications, Discord bots, gaming tools, and custom digital projects since 2022."
+    />
+    <meta name="twitter:image" content="/cats/blush.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&family=Fira+Code:wght@400;500&family=Fredoka:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/dist/tailwind.css" />
+
+    <style>
+      html {
+        color-scheme: only dark;
+      }
+
+      body {
+        background-color: #160e22;
+        background-image: repeating-linear-gradient(
+          0deg,
+          rgba(255, 255, 255, 0.025) 0px,
+          rgba(255, 255, 255, 0.025) 1px,
+          transparent 1px,
+          transparent 32px
+        );
+        overflow-x: hidden;
+      }
+
+      .sketchy-border {
+        filter: url(#rough-edges);
+        border: 2px solid rgba(244, 178, 216, 0.35);
+      }
+
+      .sketch-hatch {
+        background-color: #1a1228;
+        background-image:
+          repeating-linear-gradient(
+            45deg,
+            rgba(244, 178, 216, 0.08) 0,
+            rgba(244, 178, 216, 0.08) 1px,
+            transparent 0,
+            transparent 10px
+          ),
+          repeating-linear-gradient(
+            -45deg,
+            rgba(244, 178, 216, 0.08) 0,
+            rgba(244, 178, 216, 0.08) 1px,
+            transparent 0,
+            transparent 10px
+          );
+      }
+
+      #loading-screen {
+        transition:
+          opacity 0.5s ease-out,
+          visibility 0.5s ease-out;
+        background: rgba(22, 14, 34, 0.25);
+        backdrop-filter: blur(22px) saturate(120%);
+        -webkit-backdrop-filter: blur(22px) saturate(120%);
+      }
+
+      @keyframes catBob {
+        0%,
+        100% {
+          transform: translateY(0) scale(1);
+        }
+
+        50% {
+          transform: translateY(-6px) scale(1.02);
+        }
+      }
+
+      .cat-bob {
+        animation: catBob 2.4s ease-in-out infinite;
+      }
+
+      .cat-bob.cat-ready {
+        animation: catBob 1.1s ease-in-out infinite;
+      }
+
+      @keyframes bubblePop {
+        0% {
+          opacity: 0;
+          transform: translate(-50%, 6px) scale(0.7);
+        }
+
+        15% {
+          opacity: 1;
+          transform: translate(-50%, -4px) scale(1.05);
+        }
+
+        25% {
+          transform: translate(-50%, 0) scale(1);
+        }
+
+        80% {
+          opacity: 1;
+        }
+
+        100% {
+          opacity: 0;
+          transform: translate(-50%, -14px) scale(0.95);
+        }
+      }
+
+      .meow-bubble {
+        animation: bubblePop 1.6s ease-out forwards;
+      }
+
+      @keyframes mascotIdle {
+        0%,
+        100% {
+          transform: translateY(0) rotate(0deg);
+        }
+
+        50% {
+          transform: translateY(-8px) rotate(-2deg);
+        }
+      }
+
+      .mascot-idle {
+        animation: mascotIdle 3.2s ease-in-out infinite;
+      }
+
+      @keyframes catSquish {
+        0% {
+          transform: scale(1, 1);
+        }
+
+        30% {
+          transform: scale(1.15, 0.85);
+        }
+
+        55% {
+          transform: scale(0.9, 1.15);
+        }
+
+        75% {
+          transform: scale(1.05, 0.95);
+        }
+
+        100% {
+          transform: scale(1, 1);
+        }
+      }
+
+      .cat-squish {
+        animation: catSquish 0.5s ease-in-out;
+      }
+
+      #mascot-cat-wrap {
+        cursor: pointer;
+        touch-action: manipulation;
+      }
+
+      .note-paper {
+        transition: all 0.2s ease-out;
+      }
+
+      .note-paper:hover {
+        transform: translateY(-5px) scale(1.02) !important;
+        border-color: #f4b2d8 !important;
+        box-shadow:
+          0 10px 25px rgba(0, 0, 0, 0.5),
+          0 0 15px rgba(244, 178, 216, 0.2);
+      }
+
+      .hand-drawn-card {
+        position: relative;
+        filter: url(#rough-edges-soft);
+        border: 1.5px solid rgba(244, 178, 216, 0.3) !important;
+        border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px !important;
+        background-image:
+          repeating-linear-gradient(
+            45deg,
+            rgba(244, 178, 216, 0.035) 0,
+            rgba(244, 178, 216, 0.035) 1px,
+            transparent 0,
+            transparent 9px
+          ),
+          repeating-linear-gradient(
+            -45deg,
+            rgba(168, 127, 251, 0.035) 0,
+            rgba(168, 127, 251, 0.035) 1px,
+            transparent 0,
+            transparent 9px
+          );
+        transition:
+          transform 0.25s ease-out,
+          border-color 0.25s ease-out,
+          box-shadow 0.25s ease-out;
+      }
+
+      .hand-drawn-card:hover {
+        border-color: rgba(244, 178, 216, 0.65) !important;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+      }
+
+      .hand-drawn-card:nth-child(odd) {
+        transform: rotate(-0.35deg);
+      }
+
+      .hand-drawn-card:nth-child(even) {
+        transform: rotate(0.35deg);
+      }
+
+      .hand-drawn-card:hover {
+        transform: rotate(0deg) translateY(-3px) !important;
+      }
+
+      #loading-screen .loading-card {
+        filter: url(#rough-edges-soft);
+        background: rgba(36, 25, 53, 0.35);
+        border: 1.5px solid rgba(244, 178, 216, 0.3);
+        border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
+      }
+
+      #rickroll-overlay {
+        opacity: 0;
+        transition: opacity 0.35s ease;
+      }
+
+      #rickroll-overlay img {
+        pointer-events: none;
+        user-select: none;
+      }
+
+      .kofi-footer-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        padding: 5px 9px;
+        border: 1px solid rgba(244, 178, 216, 0.22);
+        border-radius: 9px;
+        background: rgba(27, 18, 39, 0.7);
+        color: #d4d4d8;
+        transition:
+          color 0.2s ease,
+          border-color 0.2s ease,
+          background 0.2s ease,
+          transform 0.2s ease;
+      }
+
+      .kofi-footer-link:hover {
+        color: #f4b2d8;
+        border-color: rgba(244, 178, 216, 0.55);
+        background: rgba(244, 178, 216, 0.07);
+        transform: translateY(-1px);
+      }
+
+      #role-history-modal {
+        position: fixed !important;
+        inset: 0 !important;
+        z-index: 99999 !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1.5rem;
+        background: rgba(16, 11, 26, 0.82);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: opacity 0.25s ease, visibility 0.25s ease;
+      }
+
+      #role-history-modal.role-history-open {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+      }
+
+      #role-history-modal .role-history-card {
+        position: relative;
+        z-index: 100000 !important;
+        width: min(720px, calc(100vw - 2rem));
+        max-height: 90vh;
+        overflow-y: auto;
+        overflow-x: hidden;
+        transform: translateY(14px) rotate(-0.4deg) scale(0.97);
+        opacity: 0;
+        transition: transform 0.25s ease, opacity 0.25s ease;
+        padding: 38px 28px 32px;
+        background: #241935 !important;
+        border: 1.5px solid rgba(244, 178, 216, 0.3) !important;
+        clip-path: polygon(
+          1% 4%,
+          9% 1%,
+          18% 3%,
+          28% 0%,
+          39% 2%,
+          51% 0%,
+          62% 3%,
+          74% 1%,
+          85% 4%,
+          98% 2%,
+          97% 15%,
+          100% 27%,
+          97% 39%,
+          99% 51%,
+          96% 63%,
+          99% 76%,
+          96% 88%,
+          99% 97%,
+          87% 95%,
+          76% 98%,
+          64% 96%,
+          53% 100%,
+          42% 97%,
+          31% 99%,
+          20% 96%,
+          9% 98%,
+          2% 94%,
+          4% 83%,
+          1% 71%,
+          3% 59%,
+          0% 47%,
+          3% 35%,
+          1% 23%,
+          4% 13%
+        );
+        box-shadow:
+          0 30px 80px rgba(0, 0, 0, 0.7),
+          0 0 45px rgba(244, 178, 216, 0.05);
+        scrollbar-width: thin;
+        scrollbar-color: rgba(244, 178, 216, 0.28) transparent;
+      }
+
+      #role-history-modal .role-history-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        opacity: 0.8;
+        background:
+          repeating-linear-gradient(
+            43deg,
+            transparent 0,
+            transparent 40px,
+            rgba(244, 178, 216, 0.045) 40px,
+            rgba(244, 178, 216, 0.045) 41px
+          ),
+          repeating-linear-gradient(
+            -48deg,
+            transparent 0,
+            transparent 55px,
+            rgba(168, 127, 251, 0.035) 55px,
+            rgba(168, 127, 251, 0.035) 56px
+          );
+        clip-path: inherit;
+      }
+
+      #role-history-modal.role-history-open .role-history-card {
+        transform: translateY(0) rotate(-0.4deg) scale(1);
+        opacity: 1;
+      }
+
+      .crack {
+        position: absolute;
+        z-index: 4;
+        width: 90px;
+        height: 90px;
+        pointer-events: none;
+      }
+
+      .crack::before,
+      .crack::after {
+        content: "";
+        position: absolute;
+        background: rgba(244, 178, 216, 0.35);
+        height: 1px;
+        transform-origin: left center;
+      }
+
+      .crack::before {
+        width: 65px;
+        transform: rotate(35deg);
+        top: 20px;
+        left: 5px;
+      }
+
+      .crack::after {
+        width: 48px;
+        transform: rotate(-42deg);
+        top: 58px;
+        left: 30px;
+      }
+
+      .crack-one {
+        top: 4%;
+        left: 4%;
+        transform: rotate(-12deg);
+      }
+
+      .crack-two {
+        right: 4%;
+        bottom: 6%;
+        transform: rotate(165deg);
+      }
+
+      .crack-three {
+        right: 10%;
+        top: 6%;
+        transform: scale(0.55) rotate(30deg);
+      }
+
+      .broken-piece {
+        position: absolute;
+        background: #2e2043;
+        border: 1px solid rgba(244, 178, 216, 0.25);
+        pointer-events: none;
+        z-index: 5;
+      }
+
+      .piece-one {
+        width: 28px;
+        height: 17px;
+        top: -9px;
+        right: 22%;
+        transform: rotate(24deg);
+      }
+
+      .piece-two {
+        width: 17px;
+        height: 28px;
+        bottom: -13px;
+        left: 18%;
+        transform: rotate(-35deg);
+      }
+
+      .piece-three {
+        width: 12px;
+        height: 21px;
+        top: 31%;
+        left: -8px;
+        transform: rotate(21deg);
+      }
+
+      .role-history-timeline {
+        position: relative;
+        z-index: 6;
+      }
+
+      .role-history-line {
+        position: absolute;
+        left: 20px;
+        top: 24px;
+        bottom: 24px;
+        width: 1px;
+        background: linear-gradient(
+          to bottom,
+          rgba(244, 178, 216, 0.55),
+          rgba(168, 127, 251, 0.18)
+        );
+      }
+
+      .role-history-item {
+        position: relative;
+        display: block;
+      }
+
+      .role-history-role-card {
+        min-width: 0;
+        padding: 10px 14px !important;
+        margin-bottom: 8px !important;
+        border-radius: 11px 8px 12px 9px;
+        border: none !important;
+        background: #1b1227;
+        box-shadow: none !important;
+        transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .role-history-role-card:hover {
+        background: #2e2043;
+        transform: translateY(-2px) rotate(-0.5deg);
+      }
+
+      .role-history-info {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 17px;
+        height: 17px;
+        flex: 0 0 auto;
+        border: 1px solid rgba(244, 178, 216, 0.45);
+        border-radius: 999px;
+        color: #f4b2d8;
+        font-size: 10px;
+        font-weight: 700;
+        line-height: 1;
+        cursor: pointer;
+        transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+      }
+
+      .role-history-info:hover,
+      .role-history-info.info-active {
+        background: rgba(244, 178, 216, 0.12);
+        border-color: rgba(244, 178, 216, 0.7);
+        transform: scale(1.05);
+      }
+
+      /* In-flow info panel: pushes content down instead of floating over
+         other role cards, so it never overlaps neighboring roles. */
+      .role-history-info-panel {
+        display: grid;
+        grid-template-rows: 0fr;
+        opacity: 0;
+        transition: grid-template-rows 0.25s ease, opacity 0.2s ease, margin-top 0.25s ease;
+        margin-top: 0;
+      }
+
+      .role-history-info-panel.info-open {
+        grid-template-rows: 1fr;
+        opacity: 1;
+        margin-top: 8px;
+      }
+
+      .role-history-info-panel > div {
+        overflow: hidden;
+        min-height: 0;
+      }
+
+      .role-history-info-text {
+        padding: 9px 12px;
+        border: 1px solid rgba(244, 178, 216, 0.2);
+        border-radius: 10px;
+        background: #171020;
+        color: #d4d4d8;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 1.6;
+        text-align: left;
+      }
+
+      .role-title {
+        font-size: 0.95rem !important;
+        font-weight: 600;
+      }
+
+      .role-subtitle {
+        font-size: 0.75rem !important;
+        opacity: 0.7;
+      }
+
+      .role-date-badge {
+        font-size: 0.75rem !important;
+        padding: 3px 10px !important;
+      }
+
+      body.role-history-lock {
+        overflow: hidden;
+      }
+
+      @media (max-width: 640px) {
+        #role-history-modal {
+          padding: 0.5rem;
+        }
+
+        #role-history-modal .role-history-card {
+          width: calc(100vw - 1rem);
+          max-height: calc(100vh - 1rem);
+          padding: 28px 16px 24px;
+        }
+
+        .crack-three,
+        .piece-three {
+          display: none;
+        }
+
+        .role-history-info-text {
+          font-size: 13px;
+          line-height: 1.6;
+          padding: 10px 13px;
+        }
+      }
+    </style>
+  </head>
+
+  <body
+    class="text-zinc-200 font-sans antialiased min-h-screen flex flex-col justify-between relative selection:bg-pinkAccent selection:text-base pt-20"
+  >
+    <svg style="display: none">
+      <defs>
+        <filter id="rough-edges">
+          <feTurbulence
+            type="fractalNoise"
+            baseFrequency="0.03"
+            numOctaves="3"
+            result="noise"
+          />
+
+          <feDisplacementMap
+            in="SourceGraphic"
+            in2="noise"
+            scale="3"
+            xChannelSelector="R"
+            yChannelSelector="G"
+          />
+        </filter>
+
+        <filter id="rough-edges-soft">
+          <feTurbulence
+            type="fractalNoise"
+            baseFrequency="0.012 0.018"
+            numOctaves="2"
+            seed="7"
+            result="noise"
+          />
+
+          <feDisplacementMap
+            in="SourceGraphic"
+            in2="noise"
+            scale="2.2"
+            xChannelSelector="R"
+            yChannelSelector="G"
+          />
+        </filter>
+      </defs>
+    </svg>
+
+    <audio
+      id="meow-sound"
+      src="audio/meow.mp3"
+      preload="auto"
+    ></audio>
+
+    <div
+      id="loading-screen"
+      class="fixed inset-0 z-50 flex flex-col items-center justify-center p-4"
+    >
+      <div
+        class="loading-card relative flex flex-col items-center max-w-sm text-center px-8 py-10"
+      >
+        <div class="relative mb-6">
+          <img
+            id="loading-cat"
+            src="cats/angry.png"
+            alt="Cat mascot"
+            class="cat-bob w-28 h-28 object-contain drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)]"
+          />
+
+          <span
+            class="absolute -top-2 -right-2 bg-pinkAccent text-base font-comic font-bold text-xs px-2.5 py-1 rounded-full shadow-md"
+          >
+            Meow! 🐾
+          </span>
+        </div>
+
+        <h2
+          class="text-2xl font-display font-bold text-white tracking-wide mb-1"
+        >
+          abgesetzt<span class="text-pinkAccent">.xyz</span>
+        </h2>
+
+        <p
+          class="text-xs text-zinc-300 font-sans mb-6 lang-node"
+          data-de="Lade Schreibtisch & Discord Profil..."
+          data-en="Loading Workspace & Discord Profile..."
+        >
+          Loading Workspace & Discord Profile...
+        </p>
+
+        <div
+          class="w-52 h-2.5 bg-[#1b1227]/60 rounded-full overflow-hidden border border-hair mb-6"
+        >
+          <div
+            id="progress-bar"
+            class="h-full bg-gradient-to-r from-purpleAccent to-pinkAccent w-0 transition-all duration-300"
+          ></div>
+        </div>
+
+        <button
+          id="enter-btn"
+          onclick="enterSite()"
+          class="hidden px-7 py-2.5 bg-pinkAccent hover:bg-pinkAccent/90 text-base font-display font-bold text-sm rounded-xl transition-all transform hover:scale-105 shadow-lg shadow-pinkAccent/20 lang-node"
+          data-de="Eintreten 🐾"
+          data-en="Enter 🐾"
+        >
+          Enter 🐾
+        </button>
+      </div>
+    </div>
+
+    <nav
+      class="fixed top-0 left-0 right-0 z-40 bg-base/80 backdrop-blur-md border-b border-hair"
+    >
+      <div
+        class="max-w-5xl mx-auto px-5 sm:px-6 h-16 flex justify-between items-center"
+      >
+        <a
+          href="#"
+          class="text-sm font-display font-bold tracking-wider text-white uppercase flex items-center gap-2"
+        >
+          <img
+            src="/cats/blush.png"
+            alt=""
+            class="w-5 h-5 object-contain"
+            draggable="false"
+          />
+
+          abgesetzt<span class="text-pinkAccent">.xyz</span>
+        </a>
+
+        <div
+          class="hidden md:flex items-center gap-6 text-xs font-semibold text-zinc-300"
+        >
+          <button
+            onclick="scrollToSection('profile')"
+            class="hover:text-pinkAccent transition-colors lang-node"
+            data-de="Profil"
+            data-en="About"
+          >
+            About
+          </button>
+
+          <button
+            onclick="scrollToSection('what-i-do')"
+            class="hover:text-pinkAccent transition-colors lang-node"
+            data-de="Rollen"
+            data-en="Positions"
+          >
+            Positions
+          </button>
+
+          <button
+            onclick="scrollToSection('tech-stack')"
+            class="hover:text-pinkAccent transition-colors lang-node"
+            data-de="Tech Stack"
+            data-en="Tech Stack"
+          >
+            Tech Stack
+          </button>
+
+          <button
+            onclick="scrollToSection('projects')"
+            class="hover:text-pinkAccent transition-colors lang-node"
+            data-de="Projekte"
+            data-en="Projects"
+          >
+            Projects
+          </button>
+
+          <button
+            onclick="scrollToSection('contact')"
+            class="hover:text-pinkAccent transition-colors lang-node"
+            data-de="Kontakt"
+            data-en="Contact"
+          >
+            Contact
+          </button>
+
+          <a
+            href="/sponsors"
+            class="text-pinkAccent lang-node"
+            data-de="Sponsoren"
+            data-en="Sponsors"
+          >
+            Sponsors
+          </a>
+        </div>
+
+        <div class="bg-card p-1 rounded-xl border border-hair flex gap-1">
+          <button
+            onclick="changeLanguage('en')"
+            id="btn-en"
+            class="px-3 py-1.5 text-xs font-semibold rounded-lg transition-all duration-200 bg-pinkAccent text-base font-bold shadow-md"
+          >
+            EN
+          </button>
+
+          <button
+            onclick="changeLanguage('de')"
+            id="btn-de"
+            class="px-3 py-1.5 text-xs font-semibold rounded-lg transition-all duration-200 text-zinc-400 hover:text-white"
+          >
+            DE
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <main class="flex-grow">
+
+      <header
+        id="profile"
+        class="relative z-10 max-w-3xl mx-auto px-4 pt-6 pb-8"
+      >
+        <div class="hand-drawn-card bg-card shadow-2xl relative">
+          <div class="rounded-[inherit] overflow-hidden">
+            <div
+              class="h-32 bg-gradient-to-r from-[#3a2552] via-[#2a1b3d] to-[#45285e] relative"
+            ></div>
+          </div>
+
+          <div class="px-6 pb-6 pt-0 relative">
+            <div class="flex justify-between items-end -mt-14 mb-4">
+              <div class="relative">
+                <img
+                  id="discord-pfp"
+                  src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=256&auto=format&fit=crop"
+                  alt="Discord Avatar"
+                  class="w-24 h-24 sm:w-28 sm:h-28 rounded-full object-cover border-4 border-card bg-base shadow-xl"
+                />
+
+                <div
+                  class="absolute bottom-1 right-1 w-6 h-6 bg-red-500 border-4 border-card rounded-full flex items-center justify-center"
+                  title="Do Not Disturb"
+                >
+                  <div class="w-2.5 h-0.5 bg-white rounded-full"></div>
+                </div>
+              </div>
+
+              <div
+                class="flex items-center bg-[#1b1227] px-3 py-1.5 rounded-xl border border-hair"
+                title="Discord Nitro Subscriber"
+              >
+                <img
+                  src="assets/nitro.png"
+                  alt="Discord Nitro"
+                  class="h-4 w-auto object-contain"
+                />
+              </div>
+            </div>
+
+            <h1
+              class="text-2xl sm:text-3xl font-display font-extrabold text-white flex items-center gap-2"
+            >
+              abgesetzt
+            </h1>
+
+            <div
+              class="text-xs text-zinc-400 mt-1 flex items-center gap-2 font-mono"
+            >
+              <span>abgesetzt</span>
+              <span>•</span>
+              <span>he/him</span>
+            </div>
+
+            <div class="mt-4 flex flex-wrap gap-2 text-xs font-medium">
+
+              <span
+                class="px-3 py-1 bg-[#1b1227] rounded-lg border border-hair text-zinc-200 flex items-center gap-1.5"
+              >
+                Moderator @
+
+                <img
+                  src="https://cdn.simpleicons.org/valorant/ff4655"
+                  class="w-3.5 h-3.5"
+                  title="VALORANT"
+                  alt="VALORANT"
+                />
+              </span>
+
+              <span
+                class="px-3 py-1 bg-[#1b1227] rounded-lg border border-hair text-zinc-200 flex items-center gap-1.5"
+              >
+                Reviewer @
+
+                <img
+                  src="https://cdn.abgesetzt.xyz/roles/topgg.png"
+                  class="w-3.5 h-3.5 rounded-sm"
+                  title="Top.gg"
+                  alt="Top.gg"
+                />
+              </span>
+
+              <span
+                class="px-3 py-1 bg-[#1b1227] rounded-lg border border-hair text-zinc-200 flex items-center gap-1.5"
+              >
+                Ambassador @
+
+                <img
+                  src="https://cdn.abgesetzt.xyz/roles/sg-global.jpg"
+                  class="w-3.5 h-3.5 rounded-sm"
+                  title="Stumble Guys"
+                  alt="Stumble Guys"
+                />
+              </span>
+
+            </div>
+
+            <p
+              class="mt-4 text-xs sm:text-sm text-zinc-300 leading-relaxed border-t border-hair pt-4 lang-node"
+              data-de="Hallo, ich bin Steven (18). Ich habe keinen Programmierabschluss – seit 2022 bringe ich mir alles selbst bei und entwickle meine Projekte aus eigener Leidenschaft. Ich baue moderne Web-Apps, Gaming-Tools und Discord-Bots. Nebenbei bin ich als verifizierter Bot-Reviewer bei Top.gg, Moderator für VALORANT und Community Ambassador für Stumble Guys aktiv."
+              data-en="Hi, I’m Steven (18), a self-taught developer since 2022 with no formal degree. I build modern web apps, gaming tools, and custom Discord bots. I’m also a Verified Bot Reviewer at Top.gg, a Moderator for VALORANT, and a Community Ambassador for Stumble Guys."
+            >
+              Hi, I’m Steven (18), a self-taught developer since 2022 with no
+              formal degree. I build modern web apps, gaming tools, and custom
+              Discord bots. I’m also a Verified Bot Reviewer at Top.gg, a
+              Moderator for VALORANT, and a Community Ambassador for Stumble
+              Guys.
+            </p>
+          </div>
+        </div>
+      </header>
+
+      <section class="max-w-3xl mx-auto px-4 my-8 relative z-10">
+        <div
+          class="sketch-hatch p-4 sm:p-6 rounded-2xl sketchy-border shadow-2xl relative overflow-hidden"
+        >
+          <div
+            class="flex items-center justify-between mb-3 border-b border-pinkAccent/20 pb-2"
+          >
+            <div class="flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-red-400"></span>
+              <span class="w-3 h-3 rounded-full bg-yellow-400"></span>
+              <span class="w-3 h-3 rounded-full bg-green-400"></span>
+
+              <span class="text-xs font-mono text-zinc-400 ml-2">
+                portfolio.tsx
+              </span>
+            </div>
+          </div>
+
+          <pre
+            class="font-mono text-xs sm:text-sm text-zinc-300 overflow-x-auto p-3 bg-[#130b1e] rounded-xl border border-pinkAccent/20"
+          ><code><span class="text-purpleAccent">import</span> { Developer } <span class="text-purpleAccent">from</span> <span class="text-pinkAccent">'@abgesetzt/core'</span>;
+
+<span class="text-zinc-500">// Self-taught since 2022 🐾</span>
+<span class="text-purpleAccent">const</span> profile = <span class="text-pinkAccent">new</span> Developer({
+  name: <span class="text-pinkAccent">'Steven'</span>,
+  status: <span class="text-pinkAccent">'Building Web Tools & Discord Bots'</span>,
+  stack: [<span class="text-pinkAccent">'JavaScript'</span>, <span class="text-pinkAccent">'TypeScript'</span>, <span class="text-pinkAccent">'React'</span>, <span class="text-pinkAccent">'SQLite'</span>]
+});
+
+<span class="text-purpleAccent">export default</span> profile;</code></pre>
+        </div>
+      </section>
+
+      <section class="max-w-4xl mx-auto px-4 my-8 relative z-10">
+        <div
+          class="hand-drawn-card bg-card p-6 relative shadow-2xl"
+        >
+          <div
+            class="flex items-center justify-between mb-6 pb-3 border-b border-hair"
+          >
+            <div class="flex items-center gap-2">
+              <span class="text-lg">📁</span>
+
+              <h3
+                class="text-xs font-display uppercase tracking-widest text-pinkAccent font-bold lang-node"
+                data-de="Schreibtisch & Notizen"
+                data-en="Interactive Desk Notes"
+              >
+                Interactive Desk Notes
+              </h3>
+            </div>
+
+            <span
+              class="text-xs text-zinc-400 font-comic lang-node"
+              data-de="Klick für Schnellzugriff 🐾"
+              data-en="Click for quick access 🐾"
+            >
+              Click for quick access 🐾
+            </span>
+          </div>
+
+          <div
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
+          >
+
+            <div
+              onclick="scrollToSection('what-i-do')"
+              class="note-paper hand-drawn-card cursor-pointer bg-[#1b1227] p-4 relative"
+            >
+              <div class="flex justify-between items-start mb-2">
+                <span
+                  class="text-xs font-comic font-bold text-pinkAccent lang-node"
+                  data-de="Notiz #01"
+                  data-en="Note #01"
+                >
+                  Note #01
+                </span>
+
+                <span class="text-xs">📌</span>
+              </div>
+
+              <h4
+                class="font-display font-bold text-white text-sm mb-1 lang-node"
+                data-de="Rollen"
+                data-en="Positions"
+              >
+                Positions
+              </h4>
+
+              <p
+                class="text-xs text-zinc-400 leading-tight lang-node"
+                data-de="Top.gg, Stumble Guys & VALORANT Staff"
+                data-en="Top.gg, Stumble Guys & VALORANT Staff"
+              >
+                Top.gg, Stumble Guys & VALORANT Staff
+              </p>
+            </div>
+
+            <div
+              onclick="scrollToSection('tech-stack')"
+              class="note-paper hand-drawn-card cursor-pointer bg-[#1b1227] p-4 relative"
+            >
+              <div class="flex justify-between items-start mb-2">
+                <span
+                  class="text-xs font-comic font-bold text-purpleAccent lang-node"
+                  data-de="Notiz #02"
+                  data-en="Note #02"
+                >
+                  Note #02
+                </span>
+
+                <span class="text-xs">✏️</span>
+              </div>
+
+              <h4
+                class="font-display font-bold text-white text-sm mb-1 lang-node"
+                data-de="Tech Stack"
+                data-en="Tech Stack"
+              >
+                Tech Stack
+              </h4>
+
+              <p
+                class="text-xs text-zinc-400 leading-tight lang-node"
+                data-de="JS, TS, Node, React, SQLite"
+                data-en="JS, TS, Node, React, SQLite"
+              >
+                JS, TS, Node, React, SQLite
+              </p>
+            </div>
+
+            <div
+              onclick="scrollToSection('projects')"
+              class="note-paper hand-drawn-card cursor-pointer bg-[#1b1227] p-4 relative"
+            >
+              <div class="flex justify-between items-start mb-2">
+                <span
+                  class="text-xs font-comic font-bold text-pinkAccent lang-node"
+                  data-de="Notiz #03"
+                  data-en="Note #03"
+                >
+                  Note #03
+                </span>
+
+                <span class="text-xs">💻</span>
+              </div>
+
+              <h4
+                class="font-display font-bold text-white text-sm mb-1 lang-node"
+                data-de="Projekte"
+                data-en="Projects"
+              >
+                Projects
+              </h4>
+
+              <p
+                class="text-xs text-zinc-400 leading-tight lang-node"
+                data-de="StumbleWidgets, ApplyEasy, etc."
+                data-en="StumbleWidgets, ApplyEasy, etc."
+              >
+                StumbleWidgets, ApplyEasy, etc.
+              </p>
+            </div>
+
+            <div
+              onclick="scrollToSection('contact')"
+              class="note-paper hand-drawn-card cursor-pointer bg-[#1b1227] p-4 relative"
+            >
+              <div class="flex justify-between items-start mb-2">
+                <span
+                  class="text-xs font-comic font-bold text-purpleAccent lang-node"
+                  data-de="Notiz #04"
+                  data-en="Note #04"
+                >
+                  Note #04
+                </span>
+
+                <span class="text-xs">📬</span>
+              </div>
+
+              <h4
+                class="font-display font-bold text-white text-sm mb-1 lang-node"
+                data-de="Kontakt"
+                data-en="Contact"
+              >
+                Contact
+              </h4>
+
+              <p
+                class="text-xs text-zinc-400 leading-tight lang-node"
+                data-de="Mail & Discord Anfragen"
+                data-en="Mail & Discord Inquiries"
+              >
+                Mail & Discord Inquiries
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <section id="what-i-do" class="py-12 border-t border-hair">
+        <div class="max-w-5xl mx-auto px-6 relative z-10">
+
+          <h2
+            class="text-2xl sm:text-3xl font-display font-bold text-white text-center mb-4 lang-node"
+            data-de="Tätigkeiten & Rollen"
+            data-en="What I Do"
+          >
+            What I Do
+          </h2>
+
+          <p
+            class="text-zinc-400 text-sm text-center mb-10 lang-node"
+            data-de="Aktive Rollen in der Discord- & Gaming-Community"
+            data-en="Current positions across gaming & bot communities"
+          >
+            Current positions across gaming & bot communities
+          </p>
+
+          <div
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7"
+          >
+
+            <div class="hand-drawn-card bg-card rounded-2xl p-6">
+              <div class="flex items-center gap-3 mb-3">
+
+                <img
+                  src="https://cdn.abgesetzt.xyz/roles/topgg.png"
+                  alt="Top.gg"
+                  class="w-9 h-9 rounded-lg object-cover border border-hair"
+                />
+
+                <h3
+                  class="text-base font-display font-bold text-pinkAccent lang-node"
+                  data-de="Bot Reviewer"
+                  data-en="Bot Reviewer"
+                >
+                  Bot Reviewer
+                </h3>
+
+              </div>
+
+              <p class="font-bold text-zinc-300 text-sm mb-2">
+                Top.gg
+              </p>
+
+              <p
+                class="text-zinc-400 text-xs sm:text-sm leading-relaxed lang-node"
+                data-de="Prüfe eingereichte Bots auf Richtlinien-Konformität und kläre Disputen mit Entwicklern."
+                data-en="Reviewing bot submissions for policy compliance and resolving disputes with developers."
+              >
+                Reviewing bot submissions for policy compliance and resolving
+                disputes with developers.
+              </p>
+            </div>
+
+            <div class="hand-drawn-card bg-card rounded-2xl p-6">
+              <div class="flex items-center gap-3 mb-3">
+
+                <img
+                  src="https://cdn.abgesetzt.xyz/roles/sg-global.jpg"
+                  alt="Stumble Guys"
+                  class="w-9 h-9 rounded-lg object-cover border border-hair"
+                />
+
+                <h3
+                  class="text-base font-display font-bold text-pinkAccent lang-node"
+                  data-de="Ambassador"
+                  data-en="Ambassador"
+                >
+                  Ambassador
+                </h3>
+
+              </div>
+
+              <p class="font-bold text-zinc-300 text-sm mb-2">
+                Stumble Guys
+              </p>
+
+              <p
+                class="text-zinc-400 text-xs sm:text-sm leading-relaxed lang-node"
+                data-de="Unterstützung und Moderation der Stumble Guys Community auf dem deutschen Discord-Server als Regional Moderator und German Leader Ambassador."
+                data-en="Supporting and moderating the Stumble Guys community on the German Discord server as a Regional Moderator and German Leader Ambassador."
+              >
+                Supporting and moderating the Stumble Guys community on the
+                German Discord server as a Regional Moderator and German Leader
+                Ambassador.
+              </p>
+            </div>
+
+            <div class="hand-drawn-card bg-card rounded-2xl p-6">
+              <div class="flex items-center gap-3 mb-3">
+
+                <img
+                  src="https://cdn.abgesetzt.xyz/roles/1181684175271624724.png"
+                  alt="VALORANT"
+                  class="w-9 h-9 rounded-lg object-cover border border-hair"
+                />
+
+                <h3
+                  class="text-base font-display font-bold text-pinkAccent lang-node"
+                  data-de="Moderator"
+                  data-en="Moderator"
+                >
+                  Moderator
+                </h3>
+
+              </div>
+
+              <p class="font-bold text-zinc-300 text-sm mb-2">
+                VALORANT
+              </p>
+
+              <p
+                class="text-zinc-400 text-xs sm:text-sm leading-relaxed lang-node"
+                data-de="Moderiere die VALORANT Community auf dem offiziellen Discord Server."
+                data-en="Moderating the VALORANT community across the official Discord server."
+              >
+                Moderating the VALORANT community across the official Discord
+                server.
+              </p>
+            </div>
+
+          </div>
+
+          <div class="flex justify-center mt-16">
+
+            <button
+              type="button"
+              onclick="openRoleHistory()"
+              class="hand-drawn-card group inline-flex items-center gap-2.5 px-6 py-3.5 bg-[#1b1227] text-sm font-display font-semibold text-zinc-200 hover:text-pinkAccent transition-all duration-200 hover:-translate-y-0.5 shadow-xl"
+            >
+
+              <span
+                class="lang-node"
+                data-de="Moderationsverlauf anzeigen"
+                data-en="View moderation history"
+              >
+                View moderation history
+              </span>
+            </button>
+
+          </div>
+        </div>
+      </section>
+
+      <div
+        id="role-history-modal"
+        class="role-history-modal"
+        onclick="handleRoleHistoryBackdrop(event)"
+        aria-hidden="true"
+      >
+        <div
+          class="role-history-card"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="role-history-title"
+          onclick="event.stopPropagation()"
+        >
+          <div class="crack crack-one"></div>
+          <div class="crack crack-two"></div>
+          <div class="crack crack-three"></div>
+
+          <div class="broken-piece piece-one"></div>
+          <div class="broken-piece piece-two"></div>
+          <div class="broken-piece piece-three"></div>
+
+          <div class="relative z-10">
+            <div class="modal-header flex items-start justify-between gap-4 pb-5">
+              <div>
+                <h2
+                  id="role-history-title"
+                  class="role-title text-xl sm:text-2xl font-display font-bold text-white lang-node"
+                  data-de="Rollenverlauf"
+                  data-en="Role History"
+                >
+                  Role History
+                </h2>
+
+                <p
+                  class="role-subtitle text-xs sm:text-sm text-zinc-400 lang-node"
+                  data-de="Meine Moderations- und Community-Rollen im Laufe der Zeit."
+                  data-en="My moderation and community roles over time."
+                >
+                  My moderation and community roles over time.
+                </p>
+              </div>
+
+              <button
+                type="button"
+                onclick="closeRoleHistory()"
+                class="shrink-0 w-9 h-9 flex items-center justify-center rounded-xl bg-[#1b1227] border border-white/10 text-zinc-400 hover:text-white hover:border-pinkAccent/50 transition-all"
+                aria-label="Close role history"
+              >
+                <span class="text-xl leading-none">&times;</span>
+              </button>
+            </div>
+
+            <div class="mt-4 max-w-2xl mx-auto">
+              <div class="role-history-timeline relative">
+                <div class="role-history-item">
+                  <div class="role-history-role-card role-card">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-1">
+                      <div class="flex items-center gap-2">
+                        <img
+                          src="https://cdn.abgesetzt.xyz/roles/sg-global.jpg"
+                          alt="Stumble Guys"
+                          class="w-5 h-5 rounded-md object-cover border border-hair"
+                        />
+                        <h4 class="role-title font-display font-bold text-white">
+                          Stumble Guys Moderator
+                        </h4>
+                      </div>
+
+                      <span class="role-date-badge inline-flex font-mono text-pinkAccent bg-pinkAccent/10 border border-pinkAccent/15 rounded-lg whitespace-nowrap">
+                        04/2024 — 08/2026
+                      </span>
+                    </div>
+
+                    <p class="role-subtitle text-zinc-400">
+                      Stumble Guys · Moderation
+                    </p>
+                  </div>
+                </div>
+
+                <div class="role-history-item">
+                  <div class="role-history-role-card role-card">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-1">
+                      <div class="flex items-center gap-2">
+                        <img
+                          src="https://cdn.abgesetzt.xyz/roles/sg-global.jpg"
+                          alt="Stumble Guys"
+                          class="w-5 h-5 rounded-md object-cover border border-hair"
+                        />
+                        <h4 class="role-title font-display font-bold text-white">
+                          Stumble Guys Ambassador
+                        </h4>
+
+                        <span
+                          class="role-history-info"
+                          tabindex="0"
+                          role="button"
+                          onclick="toggleRoleInfo(event, this)"
+                          onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleRoleInfo(event, this);}"
+                          aria-label="More information about Stumble Guys Ambassador"
+                          aria-expanded="false"
+                        >
+                          i
+                        </span>
+                      </div>
+
+                      <span class="role-date-badge inline-flex font-mono text-pinkAccent bg-pinkAccent/10 border border-pinkAccent/15 rounded-lg whitespace-nowrap">
+                        03/2025 — Now
+                      </span>
+                    </div>
+
+                    <p class="role-subtitle text-zinc-400">
+                      Stumble Guys · Community
+                    </p>
+
+                    <div class="role-history-info-panel">
+                      <div>
+                        <p class="role-history-info-text">
+                          Leading the German server and hosting events on the global server. Also recruited 7 Moderators who got the chance to become part of the game.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="role-history-item">
+                  <div class="role-history-role-card role-card">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-1">
+                      <div class="flex items-center gap-2">
+                        <img
+                          src="https://cdn.abgesetzt.xyz/roles/topgg.png"
+                          alt="Top.gg"
+                          class="w-5 h-5 rounded-md object-cover border border-hair"
+                        />
+                        <h4 class="role-title font-display font-bold text-white">
+                          Top.gg Reviewer
+                        </h4>
+                      </div>
+
+                      <span class="role-date-badge inline-flex font-mono text-pinkAccent bg-pinkAccent/10 border border-pinkAccent/15 rounded-lg whitespace-nowrap">
+                        05/2026 — Now
+                      </span>
+                    </div>
+
+                    <p class="role-subtitle text-zinc-400">
+                      Top.gg · Bot Reviewing
+                    </p>
+                  </div>
+                </div>
+
+                <div class="role-history-item">
+                  <div class="role-history-role-card role-card">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-1">
+                      <div class="flex items-center gap-2">
+                        <img
+                          src="https://cdn.simpleicons.org/valorant/ff4655"
+                          alt="VALORANT"
+                          class="w-5 h-5 rounded-md object-contain"
+                        />
+                        <h4 class="role-title font-display font-bold text-white">
+                          VALORANT Moderator
+                        </h4>
+                      </div>
+
+                      <span class="role-date-badge inline-flex font-mono text-pinkAccent bg-pinkAccent/10 border border-pinkAccent/15 rounded-lg whitespace-nowrap">
+                        08/2026 — Now
+                      </span>
+                    </div>
+
+                    <p class="role-subtitle text-zinc-400">
+                      VALORANT · Moderation
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section
+        id="tech-stack"
+        class="py-12 border-t border-hair bg-[#191026]/60"
+      >
+        <div class="max-w-5xl mx-auto px-6">
+
+          <h2
+            class="text-2xl sm:text-3xl font-display font-bold text-white text-center mb-4 lang-node"
+            data-de="Skills & Technologien"
+            data-en="Skills & Tech Stack"
+          >
+            Skills & Tech Stack
+          </h2>
+
+          <p
+            class="text-zinc-400 text-sm text-center mb-10 lang-node"
+            data-de="Selbst erlernt seit 2022 durch praktische Projekte"
+            data-en="Self-taught since 2022 through hands-on development"
+          >
+            Self-taught since 2022 through hands-on development
+          </p>
+
+          <div
+            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4"
+          >
+
+            <div class="hand-drawn-card bg-card p-5 rounded-2xl">
+
+              <div
+                class="text-white font-display font-bold text-sm mb-2 flex items-center gap-2"
+              >
+                <img
+                  src="https://cdn.simpleicons.org/javascript/f4b2d8"
+                  alt="JavaScript"
+                  class="w-5 h-5"
+                />
+
+                JavaScript
+              </div>
+
+              <p
+                class="text-zinc-400 text-xs leading-relaxed lang-node"
+                data-de="Seit 2022 mein Hauptwerkzeug für Web und Discord Bots."
+                data-en="My core language since 2022 for web apps and Discord bots."
+              >
+                My core language since 2022 for web apps and Discord bots.
+              </p>
+
+            </div>
+
+            <div class="hand-drawn-card bg-card p-5 rounded-2xl">
+
+              <div
+                class="text-white font-display font-bold text-sm mb-2 flex items-center gap-2"
+              >
+                <img
+                  src="https://cdn.simpleicons.org/typescript/a87ffb"
+                  alt="TypeScript"
+                  class="w-5 h-5"
+                />
+
+                TypeScript
+              </div>
+
+              <p
+                class="text-zinc-400 text-xs leading-relaxed lang-node"
+                data-de="Typsichere Ergänzung für moderne React.js Interfaces."
+                data-en="Type-safe extension for modern React.js interfaces."
+              >
+                Type-safe extension for modern React.js interfaces.
+              </p>
+
+            </div>
+
+            <div class="hand-drawn-card bg-card p-5 rounded-2xl">
+
+              <div
+                class="text-white font-display font-bold text-sm mb-2 flex items-center gap-2"
+              >
+                <img
+                  src="https://cdn.simpleicons.org/openjdk/f4b2d8"
+                  alt="Java"
+                  class="w-5 h-5"
+                />
+
+                Java
+              </div>
+
+              <p
+                class="text-zinc-400 text-xs leading-relaxed lang-node"
+                data-de="Grundlagen objektorientierter Programmierung aus der Schule."
+                data-en="Object-oriented programming fundamentals learned at school."
+              >
+                Object-oriented programming fundamentals learned at school.
+              </p>
+
+            </div>
+
+            <div class="hand-drawn-card bg-card p-5 rounded-2xl">
+
+              <div
+                class="text-white font-display font-bold text-sm mb-2 flex items-center gap-2"
+              >
+                <img
+                  src="https://cdn.simpleicons.org/sqlite/a87ffb"
+                  alt="SQLite"
+                  class="w-5 h-5"
+                />
+
+                SQLite & Mongo
+              </div>
+
+              <p
+                class="text-zinc-400 text-xs leading-relaxed lang-node"
+                data-de="Datenbank-Management für Bots und Webanwendungen."
+                data-en="Database management systems for bots and applications."
+              >
+                Database management systems for bots and applications.
+              </p>
+
+            </div>
+
+            <div class="hand-drawn-card bg-card p-5 rounded-2xl">
+
+              <div
+                class="text-white font-display font-bold text-sm mb-2 flex items-center gap-2"
+              >
+                <img
+                  src="https://cdn.simpleicons.org/html5/f4b2d8"
+                  alt="HTML5"
+                  class="w-5 h-5"
+                />
+
+                HTML & CSS
+              </div>
+
+              <p
+                class="text-zinc-400 text-xs leading-relaxed lang-node"
+                data-de="Das Basis-Fundament für meine Layouts & Widgets."
+                data-en="The foundation behind all responsive layouts and widgets."
+              >
+                The foundation behind all responsive layouts and widgets.
+              </p>
+
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="border-t border-hair py-12">
+        <div class="max-w-5xl mx-auto px-6 relative z-10">
+
+          <h2
+            class="text-2xl sm:text-3xl font-display font-bold text-white text-center mb-4 lang-node"
+            data-de="Ausgewählte Projekte"
+            data-en="Featured Projects"
+          >
+            Featured Projects
+          </h2>
+
+          <p
+            class="text-zinc-400 text-sm text-center mb-10 lang-node"
+            data-de="Webseiten, Widgets und Discord-Bots"
+            data-en="Websites, widgets, and Discord bots"
+          >
+            Websites, widgets, and Discord bots
+          </p>
+
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
+          >
+
+            <div
+              class="hand-drawn-card bg-card rounded-2xl p-6 flex flex-col justify-between"
+            >
+
+              <div>
+
+                <div
+                  class="flex justify-between items-center mb-2"
+                >
+
+                  <h3
+                    class="text-base font-display font-bold text-white"
+                  >
+                    stumblewidgets.xyz
+                  </h3>
+
+                  <a
+                    href="https://stumblewidgets.xyz"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-pinkAccent hover:text-white transition-colors text-xs font-semibold px-2.5 py-1 bg-[#1b1227] rounded-lg border border-hair"
+                  >
+                    Visit ↗
+                  </a>
+
+                </div>
+
+                <p
+                  class="text-zinc-400 text-xs leading-relaxed lang-node"
+                  data-de="Webbasierte Widgets und Live-Overlays für Stumble Guys Content Creator."
+                  data-en="A suite of web-based widgets and live overlays for Stumble Guys content creators."
+                >
+                  A suite of web-based widgets and live overlays for Stumble
+                  Guys content creators.
+                </p>
+
+              </div>
+
+              <div
+                class="mt-5 pt-3 border-t border-hair flex flex-wrap gap-1.5"
+              >
+
+                <span
+                  class="text-[9px] px-2 py-0.5 bg-[#1b1227] text-zinc-300 border border-hair rounded-md"
+                >
+                  React
+                </span>
+
+                <span
+                  class="text-[9px] px-2 py-0.5 bg-[#1b1227] text-zinc-300 border border-hair rounded-md"
+                >
+                  Tailwind
+                </span>
+
+                <span
+                  class="text-[9px] px-2 py-0.5 bg-[#1b1227] text-zinc-300 border border-hair rounded-md"
+                >
+                  MongoDB
+                </span>
+
+              </div>
+            </div>
+
+            <div
+              class="hand-drawn-card bg-card rounded-2xl p-6 flex flex-col justify-between"
+            >
+
+              <div>
+
+                <div
+                  class="flex justify-between items-center mb-2"
+                >
+
+                  <h3
+                    class="text-base font-display font-bold text-white"
+                  >
+                    Stumbdle
+                  </h3>
+
+                  <a
+                    href="https://stumbdle.stumblewidgets.xyz"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-pinkAccent hover:text-white transition-colors text-xs font-semibold px-2.5 py-1 bg-[#1b1227] rounded-lg border border-hair"
+                  >
+                    Visit ↗
+                  </a>
+
+                </div>
+
+                <p
+                  class="text-zinc-400 text-xs leading-relaxed lang-node"
+                  data-de="Ein tägliches Wordle-Rätselspiel rund um Stumble Guys Maps und Skins."
+                  data-en="An interactive Wordle-inspired daily puzzle game localized around Stumble Guys assets."
+                >
+                  An interactive Wordle-inspired daily puzzle game localized
+                  around Stumble Guys assets.
+                </p>
+
+              </div>
+
+              <div
+                class="mt-5 pt-3 border-t border-hair flex flex-wrap gap-1.5"
+              >
+
+                <span
+                  class="text-[9px] px-2 py-0.5 bg-[#1b1227] text-zinc-300 border border-hair rounded-md"
+                >
+                  Discord Activity
+                </span>
+
+                <span
+                  class="text-[9px] px-2 py-0.5 bg-[#1b1227] text-zinc-300 border border-hair rounded-md"
+                >
+                  Node.js
+                </span>
+
+                <span
+                  class="text-[9px] px-2 py-0.5 bg-[#1b1227] text-zinc-300 border border-hair rounded-md"
+                >
+                  SQLite
+                </span>
+
+              </div>
+            </div>
+
+            <div
+              class="hand-drawn-card bg-card rounded-2xl p-6 flex flex-col justify-between"
+            >
+
+              <div>
+
+                <div
+                  class="flex justify-between items-center mb-2"
+                >
+
+                  <h3
+                    class="text-base font-display font-bold text-white"
+                  >
+                    ApplyEasy
+                  </h3>
+
+                  <a
+                    href="https://applyeasy.xyz"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-pinkAccent hover:text-white transition-colors text-xs font-semibold px-2.5 py-1 bg-[#1b1227] rounded-lg border border-hair"
+                  >
+                    Visit ↗
+                  </a>
+
+                </div>
+
+                <p
+                  class="text-zinc-400 text-xs leading-relaxed lang-node"
+                  data-de="Strukturierter Discord Bot & Bewerbungssystem für Server-Teams."
+                  data-en="An advanced custom Discord bot and structured framework for recruitment systems."
+                >
+                  An advanced custom Discord bot and structured framework for
+                  recruitment systems.
+                </p>
+
+              </div>
+
+              <div
+                class="mt-5 pt-3 border-t border-hair flex flex-wrap gap-1.5"
+              >
+
+                <span
+                  class="text-[9px] px-2 py-0.5 bg-[#1b1227] text-zinc-300 border border-hair rounded-md"
+                >
+                  React
+                </span>
+
+                <span
+                  class="text-[9px] px-2 py-0.5 bg-[#1b1227] text-zinc-300 border border-hair rounded-md"
+                >
+                  Discord Bot
+                </span>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="py-12 border-t border-hair">
+        <div class="max-w-3xl mx-auto px-6 relative z-10">
+
+          <h2
+            class="text-2xl sm:text-3xl font-display font-bold text-white text-center mb-4 lang-node"
+            data-de="Kontaktier Mich"
+            data-en="Get in Touch"
+          >
+            Get in Touch
+          </h2>
+
+          <p
+            class="text-zinc-400 text-sm text-center mb-8 lang-node"
+            data-de="Offen für Projektanfragen, Kollaborationen oder Fragen"
+            data-en="Open for projects, moderation inquiries, or general questions"
+          >
+            Open for projects, moderation inquiries, or general questions
+          </p>
+
+          <div
+            class="hand-drawn-card bg-card p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6"
+          >
+
+            <div class="text-center sm:text-left">
+
+              <h3
+                class="text-lg font-display font-bold text-white mb-1 lang-node"
+                data-de="Lass uns quatschen!"
+                data-en="Let's connect!"
+              >
+                Let's connect!
+              </h3>
+
+              <p
+                class="text-xs text-zinc-400 lang-node"
+                data-de="Schreib mir direkt eine E-Mail oder auf Discord."
+                data-en="Reach out via email or connect with me on Discord directly."
+              >
+                Reach out via email or connect with me on Discord directly.
+              </p>
+
+            </div>
+
+            <div
+              class="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto"
+            >
+
+              <a
+                href="mailto:contact@abgesetzt.xyz"
+                class="w-full sm:w-auto px-5 py-2.5 bg-pinkAccent text-base font-bold text-xs rounded-xl text-center shadow-lg hover:bg-pinkAccent/90 transition-all"
+              >
+                contact@abgesetzt.xyz
+              </a>
+
+              <span
+                class="px-4 py-2.5 bg-[#1b1227] border border-hair rounded-xl text-xs font-mono text-zinc-300"
+              >
+                @abgesetzt
+              </span>
+
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer
+      class="border-t border-hair bg-[#130b1e] py-8 mt-auto w-full"
+    >
+
+      <div
+        class="max-w-5xl mx-auto px-6 flex flex-col gap-5"
+      >
+
+        <div
+          class="flex flex-col sm:flex-row items-center justify-between gap-4"
+        >
+
+          <div class="flex items-center gap-3">
+
+            <img
+              src="/cats/blush.png"
+              alt=""
+              class="w-5 h-5 object-contain"
+              draggable="false"
+            />
+
+            <span
+              class="text-sm font-display font-bold text-white"
+            >
+              abgesetzt<span class="text-pinkAccent">.xyz</span>
+            </span>
+
+            <span
+              class="text-xs text-zinc-500 font-mono"
+            >
+              | Developer & Moderator
+            </span>
+
+          </div>
+
+          <div
+            class="flex items-center gap-5 text-xs text-zinc-400"
+          >
+
+            <button
+              onclick="scrollToSection('profile')"
+              class="hover:text-pinkAccent transition-colors lang-node"
+              data-de="Profil"
+              data-en="About"
+            >
+              About
+            </button>
+
+            <button
+              onclick="scrollToSection('what-i-do')"
+              class="hover:text-pinkAccent transition-colors lang-node"
+              data-de="Rollen"
+              data-en="Positions"
+            >
+              Positions
+            </button>
+
+            <button
+              onclick="scrollToSection('tech-stack')"
+              class="hover:text-pinkAccent transition-colors lang-node"
+              data-de="Tech Stack"
+              data-en="Tech Stack"
+            >
+              Tech Stack
+            </button>
+
+            <button
+              onclick="scrollToSection('projects')"
+              class="hover:text-pinkAccent transition-colors lang-node"
+              data-de="Projekte"
+              data-en="Projects"
+            >
+              Projects
+            </button>
+
+            <button
+              onclick="scrollToSection('contact')"
+              class="hover:text-pinkAccent transition-colors lang-node"
+              data-de="Kontakt"
+              data-en="Contact"
+            >
+              Contact
+            </button>
+
+            <a
+              href="/sponsors"
+              class="text-pinkAccent lang-node"
+              data-de="Sponsoren"
+              data-en="Sponsors"
+            >
+              Sponsors
+            </a>
+
+          </div>
+        </div>
+
+        <div
+          class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-4 border-t border-hair"
+        >
+
+          <div
+            class="flex items-center gap-3 text-xs text-zinc-500"
+          >
+
+            <span>
+              Built with code, questionable decisions & way too much caffeine.
+            </span>
+
+            <a
+              href="https://ko-fi.com/abgesetzt"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="kofi-footer-link"
+              title="Support me on Ko-fi"
+            >
+              <span>☕</span>
+              <span class="font-semibold">
+                Buy me a coffee
+              </span>
+            </a>
+
+          </div>
+
+          <div class="flex items-center gap-4">
+
+            <span class="text-xs text-zinc-600">
+              Support helps keep the servers running.
+            </span>
+
+            <span
+              class="text-xs text-zinc-500 font-mono"
+            >
+              &copy; 2026 abgesetzt
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+    </footer>
+
+    <div
+      id="mascot-cat-wrap"
+      onclick="reactCat()"
+      class="fixed bottom-4 right-4 z-40 select-none"
+      title="Click me to switch cat! 🐾"
+    >
+
+      <div class="relative">
+
+        <div
+          id="meow-bubble-slot"
+          class="absolute -top-2 left-1/2 -translate-x-1/2 pointer-events-none"
+        ></div>
+
+        <img
+          id="mascot-cat"
+          src="cats/angry.png"
+          alt="Katze"
+          class="mascot-idle w-16 h-16 sm:w-20 sm:h-20 object-contain drop-shadow-[0_6px_14px_rgba(0,0,0,0.5)] transition-transform"
+        />
+
+      </div>
+    </div>
+
+    <script>
+      const DISCORD_ID = "1499889062536941568";
+
+      const CAT_IMAGES = [
+        "cats/angry.png",
+        "cats/blush.png",
+        "cats/bob.png",
+        "cats/hsppx.png",
+      ];
+
+      const RICKROLL_GIF = "assets/rr.gif";
+      const RICKROLL_AUDIO = "audio/rickroll.mp3";
+
+      let currentCatIndex = 0;
+      let catClickCount = 0;
+      let clickResetTimer = null;
+      let rickrolling = false;
+
+      async function fetchDiscordAvatar() {
+        try {
+          const response = await fetch(
+            `https://api.lanyard.rest/v1/users/${DISCORD_ID}`,
+          );
+
+          const resData = await response.json();
+
+          if (
+            resData.success &&
+            resData.data.discord_user.avatar
+          ) {
+            const user = resData.data.discord_user;
+
+            const avatarUrl =
+              `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.webp?size=256`;
+
+            document.getElementById("discord-pfp").src =
+              avatarUrl;
+          }
+        } catch (error) {
+          console.error(
+            "Error loading Discord avatar:",
+            error,
+          );
+        }
+      }
+
+      fetchDiscordAvatar();
+
+      function changeLanguage(lang) {
+        const nodes =
+          document.querySelectorAll(".lang-node");
+
+        nodes.forEach((node) => {
+          const translation =
+            node.getAttribute(`data-${lang}`);
+
+          if (translation) {
+            node.textContent = translation;
+          }
+        });
+
+        const btnDe =
+          document.getElementById("btn-de");
+
+        const btnEn =
+          document.getElementById("btn-en");
+
+        if (lang === "de") {
+          btnDe.className =
+            "px-3 py-1.5 text-xs font-semibold rounded-lg transition-all duration-200 bg-pinkAccent text-base font-bold shadow-md";
+
+          btnEn.className =
+            "px-3 py-1.5 text-xs font-semibold rounded-lg transition-all duration-200 text-zinc-400 hover:text-white";
+
+          document.documentElement.setAttribute(
+            "lang",
+            "de",
+          );
+        } else {
+          btnEn.className =
+            "px-3 py-1.5 text-xs font-semibold rounded-lg transition-all duration-200 bg-pinkAccent text-base font-bold shadow-md";
+
+          btnDe.className =
+            "px-3 py-1.5 text-xs font-semibold rounded-lg transition-all duration-200 text-zinc-400 hover:text-white";
+
+          document.documentElement.setAttribute(
+            "lang",
+            "en",
+          );
+        }
+      }
+
+      function scrollToSection(id) {
+        const target =
+          document.getElementById(id);
+
+        if (target) {
+          target.scrollIntoView({
+            behavior: "smooth",
+          });
+        }
+      }
+
+      function playMeow() {
+        const meow =
+          document.getElementById("meow-sound");
+
+        if (meow) {
+          meow.currentTime = 0;
+          meow.volume = 0.4;
+
+          meow.play().catch((e) => {
+            console.log(
+              "Audio play blocked:",
+              e,
+            );
+          });
+        }
+      }
+
+      function showBubble(container, text) {
+        if (!container) return;
+
+        const bubble =
+          document.createElement("div");
+
+        bubble.className =
+          "meow-bubble absolute whitespace-nowrap bg-[#1b1227] border border-pinkAccent/40 text-pinkAccent text-xs font-comic font-bold px-3 py-1.5 rounded-2xl shadow-lg";
+
+        bubble.textContent = text;
+
+        container.innerHTML = "";
+        container.appendChild(bubble);
+
+        setTimeout(() => {
+          if (bubble.parentNode) {
+            bubble.parentNode.removeChild(
+              bubble,
+            );
+          }
+        }, 1600);
+      }
+
+      function showRickroll() {
+        if (rickrolling) return;
+
+        rickrolling = true;
+
+        const catWrap =
+          document.getElementById(
+            "mascot-cat-wrap",
+          );
+
+        if (catWrap) {
+          catWrap.style.pointerEvents =
+            "none";
+        }
+
+        const overlay =
+          document.createElement("div");
+
+        overlay.id = "rickroll-overlay";
+
+        overlay.style.position = "fixed";
+        overlay.style.inset = "0";
+        overlay.style.zIndex = "999999";
+        overlay.style.display = "flex";
+        overlay.style.alignItems = "center";
+        overlay.style.justifyContent = "center";
+        overlay.style.pointerEvents = "none";
+        overlay.style.opacity = "0";
+        overlay.style.transition =
+          "opacity 0.35s ease";
+
+        const gif =
+          document.createElement("img");
+
+        gif.src = RICKROLL_GIF;
+        gif.alt = "";
+        gif.style.width =
+          "min(420px, 55vw)";
+        gif.style.maxWidth = "420px";
+        gif.style.height = "auto";
+        gif.style.objectFit = "contain";
+        gif.style.borderRadius = "10px";
+        gif.style.boxShadow =
+          "0 15px 45px rgba(0, 0, 0, 0.45)";
+
+        overlay.appendChild(gif);
+
+        document.body.appendChild(
+          overlay,
+        );
+
+        requestAnimationFrame(() => {
+          overlay.style.opacity = "1";
+        });
+
+        const audio =
+          new Audio(RICKROLL_AUDIO);
+
+        const maxVolume = 0.18;
+        const fadeInDuration = 700;
+        const fadeOutDuration = 1000;
+
+        audio.volume = 0;
+
+        let fadeInFrame = null;
+        let fadeOutFrame = null;
+        let fadeOutStarted = false;
+
+        const clampVolume = (value) => {
+          return Math.min(
+            1,
+            Math.max(0, value),
+          );
+        };
+
+        audio.play().catch((error) => {
+          console.log(
+            "Rickroll audio blocked:",
+            error,
+          );
+        });
+
+        const fadeInStart =
+          performance.now();
+
+        function fadeIn(now) {
+          if (fadeOutStarted) return;
+
+          const progress = Math.min(
+            Math.max(
+              (now - fadeInStart) /
+                fadeInDuration,
+              0,
+            ),
+            1,
+          );
+
+          audio.volume =
+            clampVolume(
+              maxVolume * progress,
+            );
+
+          if (progress < 1) {
+            fadeInFrame =
+              requestAnimationFrame(
+                fadeIn,
+              );
+          }
+        }
+
+        fadeInFrame =
+          requestAnimationFrame(fadeIn);
+
+        function startFadeOut() {
+          if (fadeOutStarted) return;
+
+          fadeOutStarted = true;
+
+          if (fadeInFrame) {
+            cancelAnimationFrame(
+              fadeInFrame,
+            );
+
+            fadeInFrame = null;
+          }
+
+          const startVolume =
+            clampVolume(audio.volume);
+
+          const fadeStart =
+            performance.now();
+
+          function fadeOut(now) {
+            const progress = Math.min(
+              Math.max(
+                (now - fadeStart) /
+                  fadeOutDuration,
+                0,
+              ),
+              1,
+            );
+
+            audio.volume =
+              clampVolume(
+                startVolume *
+                  (1 - progress),
+              );
+
+            if (progress < 1) {
+              fadeOutFrame =
+                requestAnimationFrame(
+                  fadeOut,
+                );
+            } else {
+              audio.volume = 0;
+              audio.pause();
+              audio.currentTime = 0;
+
+              overlay.style.opacity = "0";
+
+              setTimeout(() => {
+                overlay.remove();
+
+                rickrolling = false;
+                catClickCount = 0;
+
+                if (catWrap) {
+                  catWrap.style.pointerEvents =
+                    "auto";
+                }
+              }, 350);
+            }
+          }
+
+          fadeOutFrame =
+            requestAnimationFrame(
+              fadeOut,
+            );
+        }
+
+        audio.addEventListener(
+          "timeupdate",
+          () => {
+            if (
+              audio.duration &&
+              audio.currentTime >=
+                audio.duration -
+                  fadeOutDuration / 1000
+            ) {
+              startFadeOut();
+            }
+          },
+        );
+
+        audio.addEventListener(
+          "ended",
+          () => {
+            startFadeOut();
+          },
+        );
+      }
+
+      function reactCat() {
+        if (rickrolling) return;
+
+        const cat =
+          document.getElementById(
+            "mascot-cat",
+          );
+
+        const slot =
+          document.getElementById(
+            "meow-bubble-slot",
+          );
+
+        catClickCount++;
+
+        clearTimeout(clickResetTimer);
+
+        clickResetTimer = setTimeout(() => {
+          catClickCount = 0;
+        }, 1200);
+
+        playMeow();
+
+        if (cat) {
+          cat.classList.remove(
+            "cat-squish",
+          );
+
+          void cat.offsetWidth;
+
+          cat.classList.add(
+            "cat-squish",
+          );
+
+          currentCatIndex =
+            (currentCatIndex + 1) %
+            CAT_IMAGES.length;
+
+          cat.src =
+            CAT_IMAGES[
+              currentCatIndex
+            ];
+        }
+
+        const phrases = [
+          "Meow! 🐾",
+          "Purrr~ 💜",
+          "Hi there! 🌸",
+          "Nyaa~ 🐱",
+          "Chirp! 😸",
+          "Mrrp! ✨",
+          "Purr purr~ 💕",
+          "Mew! 🌷",
+          "Awww, hi! 🐾",
+          "Nyaa nya~ 💗",
+          "Meow meow! 🌸",
+          "Hehe, hi! 🐱",
+          "Purrrr~ ✨",
+          "Mrrrow! 💜",
+          "You found me! 🐾",
+        ];
+
+        if (catClickCount === 7) {
+          showBubble(
+            slot,
+            "Okay okay... chill 😭",
+          );
+        } else if (catClickCount === 8) {
+          showBubble(
+            slot,
+            "Bro, that's enough 💀",
+          );
+        } else if (catClickCount === 9) {
+          showBubble(
+            slot,
+            "ONE MORE... 😭",
+          );
+        } else if (catClickCount >= 10) {
+          showRickroll();
+          return;
+        } else {
+          showBubble(
+            slot,
+            phrases[
+              Math.floor(
+                Math.random() *
+                  phrases.length,
+              )
+            ],
+          );
+        }
+      }
+
+      function openRoleHistory() {
+        const modal =
+          document.getElementById(
+            "role-history-modal",
+          );
+
+        if (!modal) return;
+
+        modal.classList.add(
+          "role-history-open",
+        );
+
+        modal.setAttribute(
+          "aria-hidden",
+          "false",
+        );
+
+        document.body.classList.add(
+          "role-history-lock",
+        );
+      }
+
+      function closeRoleHistory() {
+        const modal =
+          document.getElementById(
+            "role-history-modal",
+          );
+
+        if (!modal) return;
+
+        modal.classList.remove(
+          "role-history-open",
+        );
+
+        modal.setAttribute(
+          "aria-hidden",
+          "true",
+        );
+
+        document.body.classList.remove(
+          "role-history-lock",
+        );
+      }
+
+      function toggleRoleInfo(event, trigger) {
+        event.stopPropagation();
+
+        const card = trigger.closest(
+          ".role-history-role-card",
+        );
+
+        if (!card) return;
+
+        const panel = card.querySelector(
+          ".role-history-info-panel",
+        );
+
+        if (!panel) return;
+
+        const isOpen =
+          panel.classList.toggle(
+            "info-open",
+          );
+
+        trigger.classList.toggle(
+          "info-active",
+          isOpen,
+        );
+
+        trigger.setAttribute(
+          "aria-expanded",
+          isOpen ? "true" : "false",
+        );
+      }
+
+      function handleRoleHistoryBackdrop(
+        event,
+      ) {
+        if (
+          event.target.id ===
+          "role-history-modal"
+        ) {
+          closeRoleHistory();
+        }
+      }
+
+      document.addEventListener(
+        "keydown",
+        (event) => {
+          if (event.key === "Escape") {
+            closeRoleHistory();
+          }
+        },
+      );
+
+      function enterSite() {
+        const loadingCat =
+          document.getElementById(
+            "loading-cat",
+          );
+
+        if (loadingCat) {
+          loadingCat.classList.remove(
+            "cat-bob",
+          );
+
+          loadingCat.classList.add(
+            "cat-squish",
+          );
+        }
+
+        playMeow();
+
+        const loader =
+          document.getElementById(
+            "loading-screen",
+          );
+
+        if (loader) {
+          loader.style.opacity = "0";
+
+          setTimeout(() => {
+            loader.style.visibility =
+              "hidden";
+          }, 500);
+        }
+      }
+
+      document.addEventListener(
+        "DOMContentLoaded",
+        () => {
+          changeLanguage("en");
+
+          const randomStartCat =
+            CAT_IMAGES[
+              Math.floor(
+                Math.random() *
+                  CAT_IMAGES.length,
+              )
+            ];
+
+          const loadingCat =
+            document.getElementById(
+              "loading-cat",
+            );
+
+          if (loadingCat) {
+            loadingCat.src =
+              randomStartCat;
+          }
+
+          const mascotCat =
+            document.getElementById(
+              "mascot-cat",
+            );
+
+          if (mascotCat) {
+            mascotCat.src =
+              randomStartCat;
+
+            currentCatIndex =
+              CAT_IMAGES.indexOf(
+                randomStartCat,
+              );
+          }
+
+          const progressBar =
+            document.getElementById(
+              "progress-bar",
+            );
+
+          const enterBtn =
+            document.getElementById(
+              "enter-btn",
+            );
+
+          let width = 0;
+
+          const interval =
+            setInterval(() => {
+              width += 25;
+
+              if (progressBar) {
+                progressBar.style.width =
+                  width + "%";
+              }
+
+              if (width >= 100) {
+                clearInterval(interval);
+
+                setTimeout(() => {
+                  if (enterBtn) {
+                    enterBtn.classList.remove(
+                      "hidden",
+                    );
+                  }
+
+                  if (loadingCat) {
+                    loadingCat.classList.add(
+                      "cat-ready",
+                    );
+                  }
+                }, 200);
+              }
+            }, 120);
+        },
+      );
+    </script>
+  </body>
+</html>
