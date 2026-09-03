@@ -37,9 +37,11 @@ To get this site running smoothly (and without broken image icons judgmentally s
 ### Stylesheets
 * `/dist/tailwind.css` - Compiled Tailwind CSS file for styling.
 
+**Asset Disclaimer:** Cat artwork (`/cats/`) and audio files (`/audio/`) are free third-party assets sourced from the web and belong to their respective creators (`/assets` included)
+
 ---
 
-## Interactive Easter Eggs <img src="https://abgesetzt.xyz/cats/blushy.png" width="48" alt="Cat Blushy" />
+## Interactive Easter Eggs <img src="https://abgesetzt.xyz/cats/chill.png" width="48" alt="Cat Chill" />
 
 * **Cat Mascot (Bottom Right):** Click the cat to cycle through expressions and audio meows.
 * **The 10-Click Challenge:** Click the mascot 10 times in a row. Go on, we double-dog dare you (or double-cat dare you).
@@ -49,6 +51,8 @@ To get this site running smoothly (and without broken image icons judgmentally s
 ## Usage & Attribution <img src="https://abgesetzt.xyz/cats/money.png" width="48" alt="Cat Money" />
 
 Feel free to inspect the code or use the layout as inspiration! If you plan on using or modifying this design for your own site, please give credit by linking back to this repository.
+
+You can also support me here: [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/P1A721PT3B)
 
 ---
 
